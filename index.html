@@ -337,6 +337,39 @@
   .fv-red   { border-color: #c0392b; }
   .fv-red   .fv-val { color: #a02020; }
 
+  /* STATIC PARAMS */
+  .sp-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-bottom: 16px; }
+  .sp-card {
+    background: var(--white); border: 1px solid #e0dcd0; border-radius: 10px;
+    padding: 16px 12px; text-align: center;
+  }
+  .sp-card .sp-lbl { font-size: 11px; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .sp-card .sp-val { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--green-dark); }
+  .sp-note { font-size: 12px; color: var(--text-mid); text-align: center; padding: 10px 0 0; }
+  .dcf-static { background: var(--white); border: 1px solid #e0dcd0; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .dcf-static h3 { font-size: 13px; font-weight: 600; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+  .dcf-bottom { display: grid; grid-template-columns: 280px 1fr; gap: 24px; }
+
+  /* STATIC WEIGHTS */
+  .static-weights { background: var(--white); border: 1px solid #e0dcd0; border-radius: 12px; padding: 20px; }
+  .static-weights h3 { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 16px; }
+  .sw-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0ede4; }
+  .sw-row:last-child { border-bottom: none; }
+  .sw-name { font-size: 13px; font-weight: 600; width: 40px; flex-shrink: 0; }
+  .sw-bar { flex: 1; height: 8px; background: #e0dcd0; border-radius: 4px; overflow: hidden; }
+  .sw-bar-fill { height: 100%; border-radius: 4px; }
+  .sw-pct { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; width: 40px; text-align: right; flex-shrink: 0; }
+
+  /* STATIC RECON */
+  .recon-static { background: var(--white); border: 1px solid #e0dcd0; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; }
+  .recon-static h3 { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 16px; }
+  .recon-w-row { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f0ede4; }
+  .recon-w-row:last-child { border-bottom: none; }
+  .recon-w-name { font-size: 13px; font-weight: 500; flex: 1; }
+  .recon-w-bar { flex: 2; height: 10px; background: #e0dcd0; border-radius: 5px; overflow: hidden; }
+  .recon-w-fill { height: 100%; border-radius: 5px; }
+  .recon-w-pct { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; width: 50px; text-align: right; flex-shrink: 0; }
+
   /* RADAR SECTION */
   .radar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   .radar-chart-card {
@@ -380,6 +413,81 @@
   .radar-summary-text { flex: 1; }
   .radar-summary-text .rst { font-size: 13px; color: var(--gold-light); font-weight: 600; margin-bottom: 2px; }
   .radar-summary-text .rss { font-size: 12px; color: rgba(255,255,255,0.55); }
+
+  /* ============= RESPONSIVE ============= */
+  @media (max-width: 900px) {
+    .dcf-bottom { grid-template-columns: 1fr; }
+    .radar-grid { grid-template-columns: 1fr; }
+    .wacc-grid-bottom { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 0.75rem; }
+    nav .links { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    nav .links::-webkit-scrollbar { display: none; }
+    nav a { padding: 0 10px; font-size: 10px; white-space: nowrap; letter-spacing: 0; }
+
+    .hero { padding: 72px 1rem 36px; }
+    .hero h1 { font-size: 24px; }
+    .hero-sub { font-size: 12px; margin-bottom: 28px; }
+    .hero-cards { grid-template-columns: 1fr; gap: 8px; }
+    .hero-card-value { font-size: 22px; }
+    .hero-card.featured .hero-card-value { font-size: 26px; }
+
+    section { padding: 36px 1rem; }
+    .section-title { font-size: 20px; }
+
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .charts-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    .sp-grid { grid-template-columns: repeat(2, 1fr); }
+    .sp-grid .sp-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .dcf-bottom { grid-template-columns: 1fr; }
+
+    .comp-grid { grid-template-columns: 1fr; }
+    .recon-grid { grid-template-columns: 1fr; }
+
+    .wacc-flow { flex-wrap: wrap; gap: 8px; }
+    .wacc-step { min-width: 42%; flex: none; }
+    .wacc-arrow { padding: 0 2px; font-size: 16px; }
+    .wacc-formula-text { font-size: 11px; line-height: 1.9; word-break: break-word; }
+    .wacc-grid-bottom { grid-template-columns: 1fr; }
+    .wacc-bar-label { flex-wrap: wrap; }
+
+    .fa-verdicts { grid-template-columns: repeat(2, 1fr); }
+    .fa-table { font-size: 11px; }
+    .fa-table th, .fa-table td { padding: 6px 7px; }
+    .fa-table th:first-child, .fa-table td:first-child { min-width: 140px; }
+
+    .tornado-label { width: 100px; font-size: 11px; }
+
+    .radar-grid { grid-template-columns: 1fr; }
+    .radar-metric-row { grid-template-columns: 1fr 72px 72px 60px; gap: 4px; }
+    .radar-header-row { grid-template-columns: 1fr 72px 72px 60px; gap: 4px; }
+    .radar-metric-row .rm-name small { display: none; }
+
+    .fcff-table { font-size: 10px; }
+    .fcff-table td, .fcff-table th { padding: 5px 5px; }
+
+    .recon-w-row { gap: 8px; }
+    .recon-w-pct { font-size: 15px; }
+
+    .final-box { padding: 20px; }
+    .final-box .fv { font-size: 30px; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 20px; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .sp-grid { grid-template-columns: repeat(2, 1fr); }
+    .fa-verdicts { grid-template-columns: repeat(2, 1fr); }
+    .radar-metric-row .rm-ind,
+    .radar-header-row span:nth-child(3) { display: none; }
+    .radar-metric-row { grid-template-columns: 1fr 72px 60px; }
+    .radar-header-row { grid-template-columns: 1fr 72px 60px; }
+    .wacc-step { min-width: 45%; }
+    .wacc-formula-text { font-size: 10px; }
+    .fcff-table { font-size: 9px; }
+    .fcff-table td, .fcff-table th { padding: 4px 4px; }
+  }
 </style>
 </head>
 <body>
@@ -568,7 +676,8 @@
   <!-- ЛИКВИДНОСТЬ -->
   <div id="fa-liquidity">
     <div style="background:var(--white);border:1px solid #e0dcd0;border-radius:12px;overflow:hidden">
-      <table class="fa-table">
+      <div style="overflow-x:auto">
+      <table class="fa-table" style="min-width:600px">
         <thead>
           <tr>
             <th>Показатель</th>
@@ -644,6 +753,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
     <p style="font-size:11px;color:var(--text-mid);margin-top:8px;padding-left:4px">* Для сельского хозяйства доля оборотных активов выше 0,4 допустима — отклонение некритично.</p>
 
@@ -678,7 +788,8 @@
   <!-- УСТОЙЧИВОСТЬ -->
   <div id="fa-stability" style="display:none">
     <div style="background:var(--white);border:1px solid #e0dcd0;border-radius:12px;overflow:hidden">
-      <table class="fa-table">
+      <div style="overflow-x:auto">
+      <table class="fa-table" style="min-width:600px">
         <thead>
           <tr>
             <th>Показатель</th>
@@ -755,6 +866,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <div class="fa-verdicts">
@@ -904,74 +1016,60 @@
 
 <!-- DCF -->
 <section id="dcf">
-  <div class="section-title">Доходный подход — <span>интерактивная модель ДДП</span></div>
+  <div class="section-title">Доходный подход — <span>модель ДДП</span></div>
   <div class="section-divider"></div>
-  <div class="dcf-container">
-    <div class="dcf-controls">
-      <h3>Параметры модели — двигай ползунки</h3>
 
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>WACC (ставка дисконт.)</label>
-          <span class="val-badge" id="waccVal">18,6%</span>
-        </div>
-        <input type="range" id="waccSlider" min="12" max="28" step="0.1" value="18.6">
-        <div class="range-labels"><span>12%</span><span>28%</span></div>
+  <!-- Hidden inputs: JS reads these for one-time calculation -->
+  <input type="hidden" id="waccSlider" value="18.6">
+  <input type="hidden" id="marginSlider" value="33">
+  <input type="hidden" id="growthSlider" value="8">
+  <input type="hidden" id="termSlider" value="3">
+  <input type="hidden" id="capexSlider" value="10">
+
+  <div class="dcf-static">
+    <h3>Параметры базового сценария</h3>
+    <div class="sp-grid">
+      <div class="sp-card">
+        <div class="sp-lbl">WACC</div>
+        <div class="sp-val" id="waccVal">18,6%</div>
       </div>
-
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>Маржа EBIT</label>
-          <span class="val-badge" id="marginVal">33,0%</span>
-        </div>
-        <input type="range" id="marginSlider" min="20" max="50" step="0.5" value="33">
-        <div class="range-labels"><span>20%</span><span>50%</span></div>
+      <div class="sp-card">
+        <div class="sp-lbl">EBIT-маржа</div>
+        <div class="sp-val" id="marginVal">33,0%</div>
       </div>
-
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>Рост выручки (г. 1)</label>
-          <span class="val-badge" id="growthVal">8,0%</span>
-        </div>
-        <input type="range" id="growthSlider" min="2" max="20" step="0.5" value="8">
-        <div class="range-labels"><span>2%</span><span>20%</span></div>
+      <div class="sp-card">
+        <div class="sp-lbl">Рост выручки г.1</div>
+        <div class="sp-val" id="growthVal">8,0%</div>
       </div>
-
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>Терминальный рост (g)</label>
-          <span class="val-badge" id="termVal">3,0%</span>
-        </div>
-        <input type="range" id="termSlider" min="1" max="6" step="0.1" value="3">
-        <div class="range-labels"><span>1%</span><span>6%</span></div>
+      <div class="sp-card">
+        <div class="sp-lbl">Терм. рост g</div>
+        <div class="sp-val" id="termVal">3,0%</div>
       </div>
-
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>Capex / Выручка</label>
-          <span class="val-badge" id="capexVal">10,0%</span>
-        </div>
-        <input type="range" id="capexSlider" min="5" max="18" step="0.5" value="10">
-        <div class="range-labels"><span>5%</span><span>18%</span></div>
+      <div class="sp-card">
+        <div class="sp-lbl">Capex / Выручка</div>
+        <div class="sp-val" id="capexVal">10,0%</div>
       </div>
     </div>
+    <div class="sp-note">Горизонт прогноза: 5 лет (2025–2029) · Базовый сценарий · Дата оценки: 31.12.2024</div>
+  </div>
 
-    <div>
-      <div class="dcf-result">
-        <h3>Результаты расчёта</h3>
-        <div class="result-highlight">
-          <div class="rl">Стоимость собственного капитала</div>
-          <div class="rv" id="equityResult">5 474</div>
-          <div class="rs">млн руб.</div>
-        </div>
-        <div class="result-highlight" style="background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); margin-bottom:0">
-          <div class="rl" style="color:rgba(0,0,0,0.4)">Enterprise Value (EV)</div>
-          <div class="rv" style="color: #1a4a2e; font-size:22px" id="evResult">6 667</div>
-          <div class="rs" style="color:rgba(0,0,0,0.4)">млн руб.</div>
-        </div>
+  <div class="dcf-bottom">
+    <div class="dcf-result">
+      <h3>Результаты расчёта</h3>
+      <div class="result-highlight">
+        <div class="rl">Стоимость собственного капитала</div>
+        <div class="rv" id="equityResult">5 474</div>
+        <div class="rs">млн руб.</div>
       </div>
-      <div class="dcf-result" style="margin-top:16px">
-        <h3>Прогноз FCFF (млн руб.)</h3>
+      <div class="result-highlight" style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);margin-bottom:0">
+        <div class="rl" style="color:rgba(0,0,0,0.4)">Enterprise Value (EV)</div>
+        <div class="rv" style="color:#1a4a2e;font-size:22px" id="evResult">6 667</div>
+        <div class="rs" style="color:rgba(0,0,0,0.4)">млн руб.</div>
+      </div>
+    </div>
+    <div class="dcf-result">
+      <h3>Прогноз FCFF (млн руб.)</h3>
+      <div style="overflow-x:auto">
         <table class="fcff-table" id="fcffTable">
           <thead>
             <tr>
@@ -1013,22 +1111,27 @@
       <div class="mult-sub">млн руб. — наиболее надёжен для с/х</div>
     </div>
   </div>
-  <div class="weight-controls">
-    <h3>Настрой веса мультипликаторов</h3>
-    <div class="weight-row">
-      <label style="color:#1a6b8a">P/E</label>
-      <input type="range" id="peWeight" min="0" max="100" step="5" value="30">
-      <span class="w-val" id="peWeightVal" style="color:#1a6b8a">30%</span>
+  <!-- Hidden inputs: JS reads these for calculation -->
+  <input type="hidden" id="peWeight" value="30">
+  <input type="hidden" id="psWeight" value="10">
+  <input type="hidden" id="pbvWeight" value="60">
+
+  <div class="static-weights">
+    <h3>Веса мультипликаторов</h3>
+    <div class="sw-row">
+      <span class="sw-name" style="color:#1a6b8a">P/E</span>
+      <div class="sw-bar"><div class="sw-bar-fill" style="width:30%;background:#1a6b8a"></div></div>
+      <span class="sw-pct" id="peWeightVal" style="color:#1a6b8a">30%</span>
     </div>
-    <div class="weight-row">
-      <label style="color:#8b5e3c">P/S</label>
-      <input type="range" id="psWeight" min="0" max="100" step="5" value="10">
-      <span class="w-val" id="psWeightVal" style="color:#8b5e3c">10%</span>
+    <div class="sw-row">
+      <span class="sw-name" style="color:#8b5e3c">P/S</span>
+      <div class="sw-bar"><div class="sw-bar-fill" style="width:10%;background:#8b5e3c"></div></div>
+      <span class="sw-pct" id="psWeightVal" style="color:#8b5e3c">10%</span>
     </div>
-    <div class="weight-row">
-      <label style="color:#2d7a4f">P/BV</label>
-      <input type="range" id="pbvWeight" min="0" max="100" step="5" value="60">
-      <span class="w-val" id="pbvWeightVal" style="color:#2d7a4f">60%</span>
+    <div class="sw-row">
+      <span class="sw-name" style="color:#2d7a4f">P/BV</span>
+      <div class="sw-bar"><div class="sw-bar-fill" style="width:60%;background:#2d7a4f"></div></div>
+      <span class="sw-pct" id="pbvWeightVal" style="color:#2d7a4f">60%</span>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:12px;border-top:1px solid #e0dcd0">
       <span style="font-size:12px;color:var(--text-mid)">Сумма весов:</span>
@@ -1045,21 +1148,26 @@
 <section id="reconciliation">
   <div class="section-title">Итоговое <span>согласование стоимости</span></div>
   <div class="section-divider"></div>
-  <div class="recon-slider-section">
-    <h3>Измени веса подходов — итог пересчитается автоматически</h3>
-    <div class="weight-slider-row">
-      <label>Доходный (ДДП)</label>
-      <input type="range" id="dcfWeightRecon" min="0" max="100" step="5" value="60">
-      <span class="pct" id="dcfWeightReconVal">60%</span>
+
+  <!-- Hidden inputs: JS reads these for final calculation -->
+  <input type="hidden" id="dcfWeightRecon" value="60">
+  <input type="hidden" id="compWeightRecon" value="40">
+
+  <div class="recon-static">
+    <h3>Веса подходов в согласовании</h3>
+    <div class="recon-w-row">
+      <span class="recon-w-name">Доходный подход (ДДП)</span>
+      <div class="recon-w-bar"><div class="recon-w-fill" style="width:60%;background:#2d7a4f"></div></div>
+      <span class="recon-w-pct" id="dcfWeightReconVal" style="color:#2d7a4f">60%</span>
     </div>
-    <div class="weight-slider-row">
-      <label>Сравнительный</label>
-      <input type="range" id="compWeightRecon" min="0" max="100" step="5" value="40">
-      <span class="pct" id="compWeightReconVal">40%</span>
+    <div class="recon-w-row">
+      <span class="recon-w-name">Сравнительный подход</span>
+      <div class="recon-w-bar"><div class="recon-w-fill" style="width:40%;background:#c9a84c"></div></div>
+      <span class="recon-w-pct" id="compWeightReconVal" style="color:#c9a84c">40%</span>
     </div>
     <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e0dcd0;margin-top:8px">
       <span style="font-size:13px;color:var(--text-mid)">Сумма весов:</span>
-      <span id="reconTotalWeight" style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700">100%</span>
+      <span id="reconTotalWeight" style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:#2d7a4f">100%</span>
     </div>
   </div>
 
@@ -1113,7 +1221,8 @@
   </div>
 
   <div style="margin-top:20px;background:var(--white);border:1px solid #e0dcd0;border-radius:12px;overflow:hidden">
-    <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:500px">
       <thead>
         <tr style="background:var(--green-dark);color:var(--gold)">
           <th style="padding:12px 16px;text-align:left;font-weight:500">Фактор</th>
@@ -1125,6 +1234,7 @@
       </thead>
       <tbody id="sensitivityTable"></tbody>
     </table>
+    </div>
   </div>
 </section>
 
